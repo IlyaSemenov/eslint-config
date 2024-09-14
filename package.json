@@ -1,0 +1,69 @@
+{
+  "name": "@ilyasemenov/lint-config",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.8.0",
+  "description": "",
+  "author": "Ilya Semenov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IlyaSemenov/lint-config"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "!src/**/*.test.*",
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": "22",
+    "pnpm": "9"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint --fix .",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm build",
+    "test": "vitest run",
+    "change": "beachball change",
+    "checkchange": "beachball check",
+    "release": "beachball publish"
+  },
+  "peerDependencies": {
+    "eslint": "^9.5.0",
+    "eslint-plugin-vue-pug": "^0.6.2",
+    "stylelint": "^16.9.0"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-vue-pug": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "^3.3.2",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-config-standard-vue": "^1.0.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.8",
+    "@types/node": "^22.5.4",
+    "eslint": "^9.10.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
+    "stylelint": "^16.9.0",
+    "tsconfig-vite-node": "^1.1.2",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.0.5"
+  }
+}
