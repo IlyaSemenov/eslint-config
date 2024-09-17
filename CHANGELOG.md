@@ -1,5 +1,11 @@
 # @ilyasemenov/lint-config
 
+## 1.1.1
+
+### Patch Changes
+
+- d19db0e: Disable vue/component-name-in-template-casing again, it breaks pug templates on autofix.
+
 ## 1.1.0
 
 ### Minor Changes
