@@ -1,5 +1,14 @@
 # @ilyasemenov/lint-config
 
+## 1.2.2
+
+### Patch Changes
+
+- be7e5ae: Lax stylelint rules:
+
+  - Don't limit line length
+  - Allow external `#weirdId`
+
 ## 1.2.1
 
 ### Patch Changes
