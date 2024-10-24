@@ -1,5 +1,19 @@
 # @ilyasemenov/lint-config
 
+## 1.2.0
+
+### Minor Changes
+
+- a7daee5: Stylelint options for tabs and single quotes.
+- 6116f75: Disable antfu/top-level-function.
+- d68564c: Accept stylelint config options.
+- 3989403: Accept all antfu eslint options.
+
+### Patch Changes
+
+- 867ac00: Normalize internal import patterns, support `~foo` aliases.
+- 3f067aa: Force spaces for `package.json` indentation.
+
 ## 1.1.1
 
 ### Patch Changes
