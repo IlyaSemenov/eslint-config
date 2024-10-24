@@ -1,5 +1,14 @@
 # @ilyasemenov/lint-config
 
+## 1.2.1
+
+### Patch Changes
+
+- 35bb116: - Allow `style="color: red"`
+  - Allow `clip-path: polygon(<multiline code>)`
+  - Don't convert `#0033ff` to `#03f`
+  - Allow mixed-case mixin functions such as `findInvertColor`
+
 ## 1.2.0
 
 ### Minor Changes
