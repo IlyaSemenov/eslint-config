@@ -1,5 +1,11 @@
 # @ilyasemenov/lint-config
 
+## 1.2.3
+
+### Patch Changes
+
+- 604ce13: Remove `"engines"` from `package.json`.
+
 ## 1.2.2
 
 ### Patch Changes
