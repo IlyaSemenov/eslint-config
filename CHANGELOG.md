@@ -1,5 +1,11 @@
 # @ilyasemenov/lint-config
 
+## 1.2.4
+
+### Patch Changes
+
+- f8d7473: Disable `vue/prefer-template`.
+
 ## 1.2.3
 
 ### Patch Changes
