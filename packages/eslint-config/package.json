@@ -1,7 +1,7 @@
 {
   "name": "@ilyasemenov/eslint-config",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Opinionated ESLint config on top of @antfu/eslint-config",
   "author": "Ilya Semenov",
   "license": "MIT",
