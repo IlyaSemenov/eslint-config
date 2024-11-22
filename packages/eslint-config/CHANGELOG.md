@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.0.2
+
+### Patch Changes
+
+- 59fe1d7: Disable `antfu/consistent-chaining`.
+
 ## 1.0.1
 
 ### Patch Changes
