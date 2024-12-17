@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.1.0
+
+### Minor Changes
+
+- cb63e43: Upgrade to `@antfu/eslint-config` v3.12, use regexp for sort-imports internal patterns.
+
 ## 1.0.3
 
 ### Patch Changes
