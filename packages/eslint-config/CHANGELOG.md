@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.0.3
+
+### Patch Changes
+
+- 36c1075: Fix: prevent `@antfu/eslint-config` v3.10, as it upgrades `perfectionist` to v4 and breaks the pattern rules.
+
 ## 1.0.2
 
 ### Patch Changes
