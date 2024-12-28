@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.2.0
+
+### Minor Changes
+
+- b49f236: Add `vue/no-empty-component-block`.
+
 ## 1.1.0
 
 ### Minor Changes
