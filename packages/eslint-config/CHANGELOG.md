@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.4.0
+
+### Minor Changes
+
+- 88c69ff: Update to @antfu/eslint-config 4, eslint-plugin-vue-pug 1.
+
 ## 1.3.0
 
 ### Minor Changes
