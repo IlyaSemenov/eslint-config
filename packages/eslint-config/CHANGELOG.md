@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.4.2
+
+### Patch Changes
+
+- d9f6871: Fix `component-name-in-template-casing` for Vue pug templates.
+
 ## 1.4.1
 
 ### Patch Changes
