@@ -1,13 +1,28 @@
 {
+  "name": "@ilyasemenov/eslint-config",
   "type": "module",
-  "private": true,
+  "version": "1.4.2",
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
+  "description": "Opinionated ESLint config on top of @antfu/eslint-config",
   "author": "Ilya Semenov",
   "license": "MIT",
-  "scripts": {
-    "lint": "eslint --fix .",
-    "prepare": "husky"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IlyaSemenov/eslint-config"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "files": [
+    "!src/**/*.test.*",
+    "dist",
+    "src"
+  ],
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -15,12 +30,31 @@
       "onFail": "warn"
     }
   },
+  "scripts": {
+    "prepare": "husky",
+    "build": "tsup",
+    "prepublishOnly": "pnpm build",
+    "lint": "eslint --fix .",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "eslint": "^9.5.0"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "^4.12.0",
+    "eslint-plugin-annotation": "^1.1.6",
+    "eslint-plugin-perfectionist": "^4.11.0",
+    "eslint-plugin-vue-pug": "^1.0.0-alpha.3"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.29.2",
     "@ilyasemenov/eslint-config": "workspace:*",
     "eslint": "^9.24.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
-    "typescript": "^5.8.3"
+    "tsconfig-vite-node": "^1.1.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.1"
   }
 }
