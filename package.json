@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^4.12.0",
-    "eslint-plugin-annotation": "^1.1.6",
     "eslint-plugin-perfectionist": "^4.11.0",
     "eslint-plugin-vue-pug": "^1.0.0-alpha.3"
   },
