@@ -31,6 +31,7 @@ const alphabet = Alphabet
   .generateRecommendedAlphabet()
   .sortByNaturalSort()
   .placeCharacterBefore({ characterBefore: "/", characterAfter: "-" })
+  .placeCharacterBefore({ characterBefore: ".", characterAfter: "/" })
   .getCharacters()
 
 // TODO: add antfu-style ...args chaining as needed.
@@ -71,14 +72,14 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       "prefer-template": "off",
       "perfectionist/sort-imports": ["error", {
         groups: [
-          ["builtin", "builtin-type"],
-          ["external", "external-type"],
-          ["internal", "internal-type"],
-          ["parent", "parent-type"],
-          ["sibling", "sibling-type", "index", "index-type"],
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          ["sibling", "index"],
           "unknown",
         ],
-        newlinesBetween: "always",
+        newlinesBetween: 1,
         internalPattern: [
           "^~",
           "^#",
@@ -87,6 +88,7 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
         order: "asc",
         type: "custom",
         alphabet,
+        fallbackSort: { type: "type-import-first", order: "asc" },
       }],
       "perfectionist/sort-named-imports": ["error", {
         ignoreAlias: true,
