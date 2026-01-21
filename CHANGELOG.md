@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.4.3
+
+### Patch Changes
+
+- 0af57de: Remove `eslint-plugin-annotation` (unmaintained and pulls outdated dependencies).
+
 ## 1.4.2
 
 ### Patch Changes
