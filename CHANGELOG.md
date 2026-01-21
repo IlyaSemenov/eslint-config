@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.5.0
+
+### Minor Changes
+
+- 8dd945b: Update all deps. Update perfectionist v5 rules. Fix eslint-plugin-vue peer import.
+
 ## 1.4.3
 
 ### Patch Changes
