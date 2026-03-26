@@ -1,7 +1,10 @@
 name: Test and Release
 
 env:
+  # Keep in sync with .changeset/config.json:baseBranch
   MAIN_REF: refs/heads/main
+  # For jdx/mise-action@v3, see https://github.com/jdx/mise-action/issues/394
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 on:
   push:
@@ -22,31 +25,25 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Enable corepack
-        run: corepack enable
+        uses: actions/checkout@v6
 
       - name: Setup mise
         uses: jdx/mise-action@v3
-        with:
-          version: 2026.1.5
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
-      - name: Build packages
+      - name: Build package
         run: pnpm run build
 
-      - name: Test packages
+      - name: Test package
         run: pnpm run test
 
       - name: Capture new release versions
         if: ${{ github.ref == env.MAIN_REF }}
         run: |
-          if pnpx @changesets/cli status --output=release.json; then
-            echo "RELEASE=Version $(jq -r '.releases[0].newVersion' release.json)" >> "$GITHUB_ENV"
-            rm release.json
+          if npx @changesets/cli status --output=/tmp/release.json; then
+            echo "RELEASE=Version $(jq -r '.releases[0].newVersion' /tmp/release.json)" >> "$GITHUB_ENV"
           fi
 
       - name: Create Release Pull Request or Publish to npm
