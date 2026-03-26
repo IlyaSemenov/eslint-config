@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.5.2
+
+### Patch Changes
+
+- 6c9651a: Pin to `@antfu/eslint-config@7.4` due to [upstream problem](https://github.com/antfu/eslint-config/issues/828).
+
 ## 1.5.1
 
 ### Patch Changes
