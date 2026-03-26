@@ -1,5 +1,12 @@
 # @ilyasemenov/eslint-config
 
+## 1.5.1
+
+### Patch Changes
+
+- 3453033: Enable `console.log()` in documentation.
+- a9932a0: Disable `jsonc/sort-array-values` for `package.json`, see [upstream issue](https://github.com/antfu/eslint-config/issues/763).
+
 ## 1.5.0
 
 ### Minor Changes
