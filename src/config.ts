@@ -110,6 +110,8 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
     files: ["**/package.json"],
     rules: {
       "jsonc/indent": ["error", 2],
+      // See https://github.com/antfu/eslint-config/issues/763
+      "jsonc/sort-array-values": "off",
     },
   })
 
