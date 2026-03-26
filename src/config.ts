@@ -106,6 +106,12 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       ...rules,
     },
   }, {
+    files: ["**/*.md/*.{js,ts}"],
+    rules: {
+      // Enable console.log() examples in documentation.
+      "no-console": "off",
+    },
+  }, {
     // Keep default package.json formatting.
     files: ["**/package.json"],
     rules: {
