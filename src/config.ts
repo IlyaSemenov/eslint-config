@@ -94,6 +94,9 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       "antfu/reasonable-newline": "off",
       // allow const functions
       "antfu/top-level-function": "off",
+      // its autofix turns Array.from({ length }, () => 0) into unknown[]
+      // See https://github.com/e18e/eslint-plugin/issues/179
+      "e18e/prefer-array-fill": "off",
       // allow console.log
       "no-console": "warn",
       // allow arrays [, a]

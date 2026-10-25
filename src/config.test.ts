@@ -40,3 +40,8 @@ it("allows compact one-line items", async () => {
   const code = "export const merged = { ...[1, 2].map(n => n), ...{ a: 1 } }\nexport const value = merged.a ? merged.a + 1 : null\n"
   expect(await lintRuleIds(code)).not.toContain("antfu/reasonable-newline")
 })
+
+it("keeps Array.from with a value factory", async () => {
+  const code = "export const zeros = Array.from({ length: 3 }, () => 0)\n"
+  expect(await lintRuleIds(code)).not.toContain("e18e/prefer-array-fill")
+})
