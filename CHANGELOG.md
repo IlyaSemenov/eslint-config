@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 2.0.2
+
+### Patch Changes
+
+- a70a639: Put braces of an import or export on one line when its names are not split across lines, such as a single imported name.
+
 ## 2.0.1
 
 ### Patch Changes
