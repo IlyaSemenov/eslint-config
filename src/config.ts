@@ -97,8 +97,6 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       // its autofix turns Array.from({ length }, () => 0) into unknown[]
       // See https://github.com/e18e/eslint-plugin/issues/179
       "e18e/prefer-array-fill": "off",
-      // allow console.log
-      "no-console": "warn",
       // allow arrays [, a]
       "no-sparse-arrays": "off",
       // allow string + string
@@ -155,18 +153,20 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       ...rules,
     },
   }, {
-    files: ["**/*.md/*.{js,ts}"],
-    rules: {
-      // Enable console.log() examples in documentation.
-      "no-console": "off",
-    },
-  }, {
     // Keep default package.json formatting.
     files: ["**/package.json"],
     rules: {
       "jsonc/indent": ["error", 2],
       // See https://github.com/antfu/eslint-config/issues/763
       "jsonc/sort-array-values": "off",
+    },
+  })
+
+  // Warn on console.log instead of failing.
+  // Override in place rather than in global rules, so that antfu still allows it in scripts, CLI, config files, and documentation examples.
+  composer.override("antfu/javascript/rules", {
+    rules: {
+      "no-console": ["warn", { allow: ["warn", "error"] }],
     },
   })
 

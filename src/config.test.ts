@@ -3,8 +3,8 @@ import { Linter } from "eslint"
 
 import { defineConfig } from "./config"
 
-async function lintRuleIds(code: string) {
-  const messages = new Linter({ configType: "flat" }).verify(code, await defineConfig(), "example.ts")
+async function lintRuleIds(code: string, filename = "example.ts") {
+  const messages = new Linter({ configType: "flat" }).verify(code, await defineConfig(), filename)
   return messages.map(message => message.ruleId)
 }
 
@@ -34,6 +34,17 @@ it("has vue-pug config if enabled", async () => {
   expect((await defineConfig({ vue: true })).find(c => c.rules?.["vue-pug/no-parsing-error"])).toBeUndefined()
   expect(() => defineConfig({ vuePug: true })).toThrowError()
   expect((await defineConfig({ vue: true, vuePug: true })).find(c => c.rules?.["vue-pug/no-parsing-error"])).toBeTruthy()
+})
+
+it("warns on console.log in source files", async () => {
+  expect(await lintRuleIds("console.log(1)\n", "src/example.ts")).toContain("no-console")
+})
+
+it("allows console.log in scripts, CLI, config files, and documentation examples", async () => {
+  for (const filename of ["scripts/run.ts", "cli/run.ts", "vite.config.ts"]) {
+    expect(await lintRuleIds("console.log(1)\n", filename)).not.toContain("no-console")
+  }
+  expect(await lintRuleIds("# Example\n\n```ts\nconsole.log(1)\n```\n", "README.md")).not.toContain("no-console")
 })
 
 it("allows compact one-line items", async () => {
