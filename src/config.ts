@@ -55,7 +55,9 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       ? false
       : {
           quotes: "double",
-          ...(typeof stylisticOptions !== "boolean" ? stylisticOptions : undefined),
+          ...(typeof stylisticOptions !== "boolean"
+            ? stylisticOptions
+            : undefined),
         },
     rules: {
       // always add if { ... } braces
@@ -70,29 +72,35 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       "no-sparse-arrays": "off",
       // allow string + string
       "prefer-template": "off",
-      "perfectionist/sort-imports": ["error", {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          ["sibling", "index"],
-          "unknown",
-        ],
-        newlinesBetween: 1,
-        internalPattern: [
-          "^~",
-          "^#",
-          "^@/",
-        ],
-        order: "asc",
-        type: "custom",
-        alphabet,
-        fallbackSort: { type: "type-import-first", order: "asc" },
-      }],
-      "perfectionist/sort-named-imports": ["error", {
-        ignoreAlias: true,
-      }],
+      "perfectionist/sort-imports": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            ["sibling", "index"],
+            "unknown",
+          ],
+          newlinesBetween: 1,
+          internalPattern: [
+            "^~",
+            "^#",
+            "^@/",
+          ],
+          order: "asc",
+          type: "custom",
+          alphabet,
+          fallbackSort: { type: "type-import-first", order: "asc" },
+        },
+      ],
+      "perfectionist/sort-named-imports": [
+        "error",
+        {
+          ignoreAlias: true,
+        },
+      ],
       // put if { at one line
       "style/brace-style": ["error", "1tbs"],
       // allow both it() and test()
@@ -125,7 +133,11 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
     composer.override("antfu/vue/rules", {
       rules: {
         // <component-name>
-        "vue/component-name-in-template-casing": ["error", "kebab-case", { registeredComponentsOnly: false }],
+        "vue/component-name-in-template-casing": [
+          "error",
+          "kebab-case",
+          { registeredComponentsOnly: false },
+        ],
         // disable empty <script> and <style> blocks
         "vue/no-empty-component-block": "error",
         // allow string + string
@@ -141,7 +153,11 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
         name: "ilyasemenov/vue/rules",
         rules: {
           // component-name
-          "vue-pug/component-name-in-template-casing": ["error", "kebab-case", { registeredComponentsOnly: false }],
+          "vue-pug/component-name-in-template-casing": [
+            "error",
+            "kebab-case",
+            { registeredComponentsOnly: false },
+          ],
         },
       })
     }
