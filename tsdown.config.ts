@@ -2,7 +2,11 @@ import { defineConfig } from "tsdown"
 
 export default defineConfig({
   entry: ["src/index.ts"],
-  format: ["esm", "cjs"],
-  sourcemap: true,
+  format: ["cjs", "esm"],
+  dts: true,
   exports: true,
+  publint: true,
+  attw: {
+    profile: "strict",
+  },
 })

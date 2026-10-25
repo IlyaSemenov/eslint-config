@@ -12,8 +12,8 @@
   },
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
@@ -21,9 +21,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "files": [
-    "!src/**/*.test.*",
-    "dist",
-    "src"
+    "README.md",
+    "dist"
   ],
   "devEngines": {
     "packageManager": {
@@ -49,14 +48,16 @@
     "eslint-plugin-vue-pug": "^1.0.0-alpha.6"
   },
   "devDependencies": {
+    "@arethetypeswrong/core": "^0.18.5",
     "@changesets/cli": "^2.29.8",
     "@ilyasemenov/eslint-config": "workspace:*",
     "eslint": "^9.39.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "publint": "^0.3.25",
     "tsconfig-vite-node": "^1.2.0",
-    "tsdown": "0.20.0-beta.4",
-    "typescript": "^5.9.3",
+    "tsdown": "^0.23.2",
+    "typescript": "~6.0.3",
     "vitest": "^4.0.17"
   }
 }
