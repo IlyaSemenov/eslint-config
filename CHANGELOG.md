@@ -1,5 +1,11 @@
 # @ilyasemenov/eslint-config
 
+## 1.5.3
+
+### Patch Changes
+
+- af6a6cd: Unpin `eslint-plugin-vue`, update `eslint-plugin-vue-pug` to 1.0.0-alpha.6.
+
 ## 1.5.2
 
 ### Patch Changes
