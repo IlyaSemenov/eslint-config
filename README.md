@@ -56,12 +56,17 @@ and run:
 pnpm lint
 ```
 
-## Setup lint-staged
+## Setup Lefthook
 
-Create `lint-staged.config.js`:
+Create `lefthook.yml`:
 
-```js
-export default {
-  "*.{cjs,js,ts,json,md,yaml,toml}": "eslint --fix"
-}
+```yaml
+glob_matcher: doublestar
+
+pre-commit:
+  commands:
+    eslint:
+      glob: "**/*.{cjs,js,ts,json,md,yaml,yml,toml}"
+      run: ./node_modules/.bin/eslint --fix --no-warn-ignored {staged_files}
+      stage_fixed: true
 ```
