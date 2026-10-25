@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/core": "^0.18.5",
-    "@changesets/cli": "^2.29.8",
+    "@changesets/cli": "^3.0.3",
     "@tsconfig/bun": "^1.0.11",
     "@types/bun": "^1.4.4",
     "eslint": "^9.39.2",
