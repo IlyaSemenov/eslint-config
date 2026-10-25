@@ -54,6 +54,8 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
     stylistic: stylisticOptions === false
       ? false
       : {
+          // put if { at one line, in both scripts and Vue templates
+          braceStyle: "1tbs",
           quotes: "double",
           ...(typeof stylisticOptions !== "boolean"
             ? stylisticOptions
@@ -101,8 +103,6 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
           ignoreAlias: true,
         },
       ],
-      // put if { at one line
-      "style/brace-style": ["error", "1tbs"],
       // allow both it() and test()
       "test/consistent-test-it": "off",
       // allow @ts-ignore
