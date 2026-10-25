@@ -31,6 +31,9 @@
     "access": "public",
     "provenance": true
   },
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "prepare": "lefthook install",
     "build": "tsdown",
