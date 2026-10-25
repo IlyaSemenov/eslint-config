@@ -1,5 +1,23 @@
 # @ilyasemenov/eslint-config
 
+## 2.0.0
+
+### Major Changes
+
+- cf49545: Require ESLint 10.4 or later and update `@antfu/eslint-config` to v10.
+- 46e1666: Require Node.js 22.13 or later.
+
+### Minor Changes
+
+- 2f862d2: Add `environment` option; with `"bun"`, Bun builtin modules such as `bun:test` are sorted together with Node.js builtin modules.
+- 9525a53: Group re-exports like imports: packages, internal paths, parent paths and sibling paths, separated by blank lines.
+
+### Patch Changes
+
+- bc385a8: Publish only the build output, without source files and source maps.
+- 84ba2b5: Sort `~icons/*` and other `~`-prefixed virtual modules together with packages instead of internal `~/` imports.
+- f81a013: Enforce 1TBS brace style in Vue templates as in scripts, and allow single-line blocks such as `if (ok) { run() }`.
+
 ## 1.5.3
 
 ### Patch Changes
