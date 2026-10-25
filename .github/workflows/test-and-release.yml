@@ -30,14 +30,20 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v3
 
+      # for npx publish
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
       - name: Install deps
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Build package
-        run: pnpm run build
+        run: bun run build
 
       - name: Test package
-        run: pnpm run test
+        run: bun run test
 
       - name: Capture new release versions
         if: ${{ github.ref == env.MAIN_REF }}
@@ -51,7 +57,7 @@ jobs:
         if: ${{ github.ref == env.MAIN_REF }}
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset publish
+          publish: npx changeset publish
           title: ${{ env.RELEASE }}
           commit: ${{ env.RELEASE }}
         env:
