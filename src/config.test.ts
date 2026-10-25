@@ -52,6 +52,16 @@ it("allows compact one-line items", async () => {
   expect(await lintRuleIds(code)).not.toContain("antfu/reasonable-newline")
 })
 
+it("joins braces of a single-name import or export onto one line", async () => {
+  const code = "import {\n  a,\n} from \"a\"\n\nexport {\n  a,\n}\n"
+  expect((await lintRuleIds(code)).filter(ruleId => ruleId === "style/object-curly-newline")).toHaveLength(4)
+})
+
+it("keeps multiline imports and exports with names on separate lines", async () => {
+  const code = "import {\n  a,\n  b,\n} from \"a\"\n\nexport {\n  a,\n  b,\n}\n"
+  expect(await lintRuleIds(code)).not.toContain("style/object-curly-newline")
+})
+
 it("keeps Array.from with a value factory", async () => {
   const code = "export const zeros = Array.from({ length: 3 }, () => 0)\n"
   expect(await lintRuleIds(code)).not.toContain("e18e/prefer-array-fill")

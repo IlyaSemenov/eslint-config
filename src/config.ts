@@ -170,6 +170,21 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
     },
   })
 
+  if (stylisticOptions !== false) {
+    composer.override("antfu/stylistic/rules", {
+      rules: {
+        // put braces of an import or export on the same line when its names are not split across lines
+        "style/object-curly-newline": [
+          "error",
+          {
+            ImportDeclaration: { multiline: true },
+            ExportDeclaration: { multiline: true },
+          },
+        ],
+      },
+    })
+  }
+
   if (enableVue) {
     composer.override("antfu/vue/rules", {
       rules: {
