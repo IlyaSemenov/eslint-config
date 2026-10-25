@@ -1,5 +1,13 @@
 # @ilyasemenov/eslint-config
 
+## 2.0.1
+
+### Patch Changes
+
+- e38526e: Fix `--fix` breaking TypeScript types by rewriting `Array.from({ length }, () => value)` into `Array.from({ length }).fill(value)`.
+- 6ee7fc2: Allow compact one-line objects, arrays, spreads, and ternaries instead of breaking them into lines with `antfu/reasonable-newline`.
+- a2e9bfa: Fix `no-console` warnings in scripts, CLI, `bin`, and config files, where `@antfu/eslint-config` allows `console.log`.
+
 ## 2.0.0
 
 ### Major Changes

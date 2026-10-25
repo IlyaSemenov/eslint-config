@@ -1,7 +1,7 @@
 {
   "name": "@ilyasemenov/eslint-config",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "packageManager": "bun@1.4.4",
   "description": "Opinionated ESLint config on top of @antfu/eslint-config",
   "author": "Ilya Semenov",
