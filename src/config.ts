@@ -44,7 +44,7 @@ const alphabet = Alphabet
 
 // Module paths of project-internal imports and re-exports.
 const internalPattern = [
-  "^~",
+  "^~+/",
   "^#",
   "^@/",
 ]
