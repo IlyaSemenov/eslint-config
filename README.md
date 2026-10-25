@@ -34,6 +34,9 @@ export default defineConfig({
   // Lint pug in Vue templates.
   vuePug: true,
 
+  // Sort Bun builtin modules such as `bun:test` with Node.js builtin modules.
+  environment: "bun",
+
   // ...and all @antfu/eslint-config options.
 })
 ```

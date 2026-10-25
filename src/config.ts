@@ -19,6 +19,14 @@ export interface EslintOptions extends AntfuEslintOptions {
    * @default false
    */
   vuePug?: boolean
+  /**
+   * Runtime environment whose builtin modules are sorted as builtin imports.
+   *
+   * With `"bun"`, this includes `bun`, `bun:*`, and modules Bun replaces natively, such as `ws`.
+   *
+   * @default "node"
+   */
+  environment?: "node" | "bun"
 }
 
 // Workaround for error TS2742:
@@ -39,6 +47,7 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
   const {
     vue: enableVue = false,
     vuePug: enableVuePug = false,
+    environment = "node",
     stylistic: stylisticOptions,
     rules,
     ...antfuOptions
@@ -91,6 +100,7 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
             "^#",
             "^@/",
           ],
+          environment,
           order: "asc",
           type: "custom",
           alphabet,
