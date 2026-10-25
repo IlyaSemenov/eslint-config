@@ -42,6 +42,21 @@ const alphabet = Alphabet
   .placeCharacterBefore({ characterBefore: ".", characterAfter: "/" })
   .getCharacters()
 
+// Module paths of project-internal imports and re-exports.
+const internalPattern = [
+  "^~",
+  "^#",
+  "^@/",
+]
+
+// Sorting shared by imports and re-exports.
+const moduleSortOptions = {
+  type: "custom",
+  alphabet,
+  order: "asc",
+  newlinesBetween: 1,
+} as const
+
 // TODO: add antfu-style ...args chaining as needed.
 export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
   const {
@@ -86,6 +101,7 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       "perfectionist/sort-imports": [
         "error",
         {
+          ...moduleSortOptions,
           groups: [
             "builtin",
             "external",
@@ -94,17 +110,27 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
             ["sibling", "index"],
             "unknown",
           ],
-          newlinesBetween: 1,
-          internalPattern: [
-            "^~",
-            "^#",
-            "^@/",
-          ],
+          internalPattern,
           environment,
-          order: "asc",
-          type: "custom",
-          alphabet,
           fallbackSort: { type: "type-import-first", order: "asc" },
+        },
+      ],
+      // group re-exports like imports; packages fall into "unknown"
+      "perfectionist/sort-exports": [
+        "error",
+        {
+          ...moduleSortOptions,
+          customGroups: [
+            { groupName: "internal", elementNamePattern: internalPattern },
+            { groupName: "parent", elementNamePattern: "^\\.\\.(/|$)" },
+            { groupName: "sibling", elementNamePattern: "^\\.(/|$)" },
+          ],
+          groups: [
+            "unknown",
+            "internal",
+            "parent",
+            "sibling",
+          ],
         },
       ],
       "perfectionist/sort-named-imports": [
