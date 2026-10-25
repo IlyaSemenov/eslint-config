@@ -90,6 +90,8 @@ export function defineConfig(options: EslintOptions = {}): FlatConfigComposer {
       "curly": ["error", "all"],
       // allow multiple chained function calls on single line
       "antfu/consistent-chaining": "off",
+      // allow compact one-line objects, arrays, spreads, and ternaries
+      "antfu/reasonable-newline": "off",
       // allow const functions
       "antfu/top-level-function": "off",
       // allow console.log
